@@ -6,6 +6,6 @@ public class Prompt_List : MonoBehaviour
     //*-----------------------------------------------------------------------------------------//
     [Header("Prompt Listesi ------------------------------------------------------------")]
     [Space]
-    public List<Prompts> Prompts = new List<Prompts>();
+    public List<Paragraphs_For_Insp> Prompts = new List<Paragraphs_For_Insp>();
     //*-----------------------------------------------------------------------------------------//
 }
