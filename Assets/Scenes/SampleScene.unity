@@ -434,9 +434,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gemini_Api_Handler
   model: gemini-2.5-flash
   apiKey: AIzaSyCoST9MODBit_vIyXst0phVAZ4TxTAH1X8
-  On_Response_Received:
-    m_PersistentCalls:
-      m_Calls: []
+  Last_Response: 
+  Is_Response_Received: 0
+  Is_Request_In_Progress: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

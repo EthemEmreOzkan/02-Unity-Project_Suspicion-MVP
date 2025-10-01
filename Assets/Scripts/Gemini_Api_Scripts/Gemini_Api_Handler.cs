@@ -1,30 +1,27 @@
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.Events;
 using System.Collections;
 using System.Text;
 
 public class Gemini_Api_Handler : MonoBehaviour
 {
-    //*-----------------------------------------------------------------------------------------//
-
-    #region Inspector Tab ------------------------------------------------------------------------
+   //*-----------------------------------------------------------------------------------------//
+    #region Inspector Tab
 
     [Header("Gemini Ayarları -----------------------------------------------------------")]
     [Space]
     [SerializeField] private string model = "gemini-2.5-flash";
     [SerializeField] private string apiKey = "YOUR_GEMINI_API_KEY_HERE";
 
-    [Header("Yanıt Alındığında")]
+    [Header("Yanıt----------------------------------------------------------------------")]
     [Space]
-    [Tooltip("API'den yanıt geldiğinde tetiklenir ve yanıt metnini string olarak iletir.")]
-    public UnityEvent<string> On_Response_Received;
+    public string Last_Response = "";
+    public bool Is_Response_Received = false;
+    public bool Is_Request_In_Progress = false;
 
     #endregion
-   
     //*-----------------------------------------------------------------------------------------//
-
-    #region Send_Prompt Public Func -------------------------------------------------------------
+    #region Send_Prompt Public Func
 
     public void Send_Prompt(string prompt)
     {
@@ -33,18 +30,29 @@ public class Gemini_Api_Handler : MonoBehaviour
         {
             string error = "Hata: Lütfen Gemini API Anahtarınızı atayın!";
             Debug.LogError(error);
-            On_Response_Received?.Invoke(error);
+            Last_Response = error;
+            Is_Response_Received = true;
+            Is_Request_In_Progress = false;
             return;
         }
+
+        if (Is_Request_In_Progress)
+        {
+            Debug.LogWarning("Uyarı: Önceki istek tamamlanmadan yeni bir istek gönderilemez.");
+            return;
+        }
+
+        // Durum değişkenlerini sıfırla ve isteği başlat
+        Is_Response_Received = false;
+        Is_Request_In_Progress = true;
+        Last_Response = "";
 
         StartCoroutine(Send_Prompt_To_Gemini(prompt));
     }
 
     #endregion
-   
     //*-----------------------------------------------------------------------------------------//
-
-    #region Private Funcs ------------------------------------------------------------------------
+    #region Private Funcs
 
     private IEnumerator Send_Prompt_To_Gemini(string prompt)
     {
@@ -81,8 +89,11 @@ public class Gemini_Api_Handler : MonoBehaviour
             Debug.Log("Gemini Yanıtı:\n" + result);
         }
 
-        // Sonucu abone olan tüm yöntemlere ilet
-        On_Response_Received?.Invoke(result);
+        // Sonucu public değişkene kaydet
+        Last_Response = result;
+        // İstek tamamlandı
+        Is_Response_Received = true;
+        Is_Request_In_Progress = false;
     }
 
     //*-----------------------------------------------------------------------------------------//
@@ -91,9 +102,9 @@ public class Gemini_Api_Handler : MonoBehaviour
     {
         // Ters eğik çizgi, çift tırnak, yeni satır ve satır başı karakterlerini kaçır
         return s.Replace("\\", "\\\\")
-                .Replace("\"", "\\\"")
-                .Replace("\n", "\\n")
-                .Replace("\r", "\\r");
+                    .Replace("\"", "\\\"")
+                    .Replace("\n", "\\n")
+                    .Replace("\r", "\\r");
     }
 
     //*-----------------------------------------------------------------------------------------//
@@ -101,7 +112,6 @@ public class Gemini_Api_Handler : MonoBehaviour
     private string ExtractTextFromGeminiResponse(string json)
     {
         // En basit yöntemle JSON'dan "text" alanını bulmaya çalışır.
-        // Daha güvenilir bir çözüm için bir JSON ayrıştırıcı kütüphanesi (Newtonsoft.Json gibi) kullanılmalıdır.
         const string marker = "\"text\": \"";
         int start = json.IndexOf(marker);
 
@@ -121,9 +131,10 @@ public class Gemini_Api_Handler : MonoBehaviour
         string result = json.Substring(start, end - start);
 
         // Kaçırılmış \n karakterlerini gerçek yeni satır karakterlerine çevir
-        return result.Replace("\\n", "\n");
+        // Ek olarak, JSON'dan kaçırılmış tırnakları da geri çeviriyoruz
+        return result.Replace("\\n", "\n").Replace("\\\"", "\"");
     }
-   
+
     #endregion
     //*-----------------------------------------------------------------------------------------//
 }
