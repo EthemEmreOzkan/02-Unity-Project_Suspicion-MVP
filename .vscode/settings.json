@@ -56,6 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Merge_Conflict_Test.sln",
+    "dotnet.defaultSolution": "02-Unity-Project_Suspicion.sln",
     "explorer.excludeGitIgnore": true
 }
