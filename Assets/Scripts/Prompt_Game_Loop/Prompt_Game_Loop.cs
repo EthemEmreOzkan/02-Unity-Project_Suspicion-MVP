@@ -58,6 +58,7 @@ public class Prompt_Game_Loop : MonoBehaviour
         string player_text = Player_InputField.text;
         Prompt_To_String = Prompt_List.Prompts[1].text;
         Prompt_To_String += Text_Seperator.Murder_Scenario;
+        Prompt_To_String += "Oyuncunun Metni:";
         Prompt_To_String += player_text;
         Gemini_Api_Handler.Send_Prompt(Prompt_To_String);
         //! DEBUGLOG
