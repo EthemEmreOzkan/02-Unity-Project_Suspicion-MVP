@@ -23,7 +23,7 @@ public class Prompt_Game_Loop : MonoBehaviour
     {
         if (Gemini_Api_Handler != null && Prompt_List != null && Prompt_List.Prompts.Count > 0)
         {
-            Send_Prompt_To_Prompt_List(0);
+            //Send_Prompt_To_Prompt_List(0);
         }
         else
         {

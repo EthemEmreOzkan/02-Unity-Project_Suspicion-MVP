@@ -31,7 +31,7 @@ public class Text_Seperator : MonoBehaviour
     [Space]
 
     [Header("Debug / Private")]//Private vars
-    [SerializeField]private bool hasProcessed = false;
+    public bool hasProcessed = false;
 
     #endregion
     //*-----------------------------------------------------------------------------------------//
