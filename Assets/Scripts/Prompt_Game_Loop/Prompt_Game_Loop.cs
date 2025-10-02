@@ -23,8 +23,7 @@ public class Prompt_Game_Loop : MonoBehaviour
     {
         if (Gemini_Api_Handler != null && Prompt_List != null && Prompt_List.Prompts.Count > 0)
         {
-            Prompt_To_String = Prompt_List.Prompts[0].text;
-            Gemini_Api_Handler.Send_Prompt(Prompt_To_String);
+            Send_Prompt_To_Prompt_List(0);
         }
         else
         {
@@ -39,6 +38,15 @@ public class Prompt_Game_Loop : MonoBehaviour
         {
             Prompt_To_String = "";
         }
+    }
+
+    #endregion
+    //*-----------------------------------------------------------------------------------------//
+    #region Public Methods
+    public void Send_Prompt_To_Prompt_List(int Prompt_Index)
+    {
+        Prompt_To_String = Prompt_List.Prompts[Prompt_Index].text;
+        Gemini_Api_Handler.Send_Prompt(Prompt_To_String);
     }
 
     #endregion
