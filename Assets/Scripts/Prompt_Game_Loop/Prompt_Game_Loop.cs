@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class Prompt_Game_Loop : MonoBehaviour
     [Space]
     [SerializeField] private Gemini_Api_Handler Gemini_Api_Handler;
     [SerializeField] private Prompt_List Prompt_List;
+    [SerializeField] private TMP_InputField Player_InputField;
     [Space]
     [Header("Debug / Private --------------------------------------------------------------------")]
     [Space]
@@ -23,7 +25,7 @@ public class Prompt_Game_Loop : MonoBehaviour
     {
         if (Gemini_Api_Handler != null && Prompt_List != null && Prompt_List.Prompts.Count > 0)
         {
-            //Send_Prompt_To_Prompt_List(0);
+            Send_Prompt_To_Prompt_List(0);
         }
         else
         {
@@ -49,6 +51,17 @@ public class Prompt_Game_Loop : MonoBehaviour
         Gemini_Api_Handler.Send_Prompt(Prompt_To_String);
     }
 
+    public void Send_Player_Answer()
+    {
+        string playerText = Player_InputField.text;
+        Prompt_To_String = Prompt_List.Prompts[1].text;
+        Prompt_To_String += playerText;
+        Gemini_Api_Handler.Send_Prompt(Prompt_To_String);
+    }
+
+    #endregion
+    //*-----------------------------------------------------------------------------------------//
+    #region Private Methods
     #endregion
     //*-----------------------------------------------------------------------------------------//
 }

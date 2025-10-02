@@ -13,7 +13,7 @@ public class Run_Time_Tabs : MonoBehaviour
     [SerializeField] private List<TextMeshPro> Motives_For_Murder;
     [SerializeField] private List<TextMeshPro> Murder_Weapons;
     [SerializeField] private List<TextMeshPro> Murder_Locations;
-
+    [SerializeField] private string Murder_Response;
 
     void Update()
     {
@@ -33,6 +33,8 @@ public class Run_Time_Tabs : MonoBehaviour
             Motives_For_Murder[i].text = Text_Seperator.Motives_For_Murder[i];
             Murder_Weapons[i].text = Text_Seperator.Murder_Weapons[i];
             Murder_Locations[i].text = Text_Seperator.Murder_Locations[i];
-        }   
+        }
     }
+    
+
 }
