@@ -4,29 +4,53 @@ using UnityEngine;
 
 public class Text_Seperator : MonoBehaviour
 {
-    [SerializeField] private Gemini_Api_Handler Gemini_Api_Handler;
+    //*-----------------------------------------------------------------------------------------//
+    #region Inspector Tab
     
-    [Header("Parsed Data")]
-    public List<string> Motive_For_Murder = new List<string>();
-    public List<string> Murder_Weapon = new List<string>();
-    public List<string> Murder_Location = new List<string>();
+    [Header("References -------------------------------------------------------------------------")]
+    [Space]
+    [SerializeField] private Gemini_Api_Handler Gemini_Api_Handler;
+    [Space]
+    [Header("9 Word Data ------------------------------------------------------------------------")]
+    [Space]
+    public List<string> Motives_For_Murder = new List<string>();
+    public List<string> Murder_Weapons = new List<string>();
+    public List<string> Murder_Locations = new List<string>();
+    [Space]
+    [Header("Combinations ------------------------------------------------------------------------")]
+    [Space]
     public List<string> Murder_Combination = new List<string>();
-    public string Murder_Scenario = "";
-    public List<string> Witness_Words = new List<string>();
+    public List<string> Witness_Combination = new List<string>();
+    [Space]
+    [Header("Scenarios ---------------------------------------------------------------------------")]
+    [Space]
+    [TextArea(3, 10)]
     public string Witness_Scenario = "";
+    [TextArea(3,10)]
+    public string Murder_Scenario = "";
+    [Space]
 
-    private bool hasProcessed = false;
+    [Header("Debug / Private")]//Private vars
+    [SerializeField]private bool hasProcessed = false;
+
+    #endregion
+    //*-----------------------------------------------------------------------------------------//
+    #region Unity Lifecycle
 
     void Update()
     {
-        if (!hasProcessed && 
-            Gemini_Api_Handler.Is_Response_Received && 
+        if (!hasProcessed &&
+            Gemini_Api_Handler.Is_Response_Received &&
             !Gemini_Api_Handler.Is_Request_In_Progress)
         {
             ParseResponse(Gemini_Api_Handler.Last_Response);
             hasProcessed = true;
         }
     }
+
+    #endregion
+    //*-----------------------------------------------------------------------------------------//
+    #region Private Methods
 
     private void ParseResponse(string response)
     {
@@ -59,7 +83,7 @@ public class Text_Seperator : MonoBehaviour
 
                 currentSection = line;
                 currentList = GetListForSection(currentSection);
-                
+
                 // Senaryo bölümlerinde StringBuilder kullan
                 if (IsScenarioSection(currentSection))
                 {
@@ -92,11 +116,11 @@ public class Text_Seperator : MonoBehaviour
 
     private void ClearAllLists()
     {
-        Motive_For_Murder.Clear();
-        Murder_Weapon.Clear();
-        Murder_Location.Clear();
+        Motives_For_Murder.Clear();
+        Murder_Weapons.Clear();
+        Murder_Locations.Clear();
         Murder_Combination.Clear();
-        Witness_Words.Clear();
+        Witness_Combination.Clear();
         Murder_Scenario = "";
         Witness_Scenario = "";
     }
@@ -106,15 +130,15 @@ public class Text_Seperator : MonoBehaviour
         switch (section)
         {
             case "#Cinayet_Nedeni":
-                return Motive_For_Murder;
+                return Motives_For_Murder;
             case "#Cinayet_Silahı":
-                return Murder_Weapon;
+                return Murder_Weapons;
             case "#Cinayet_Mekanı":
-                return Murder_Location;
+                return Murder_Locations;
             case "#Cinayet_Kombinasyonu":
                 return Murder_Combination;
             case "#Görgü_Tanığı_Kelimeler":
-                return Witness_Words;
+                return Witness_Combination;
             default:
                 return null;
         }
@@ -137,12 +161,15 @@ public class Text_Seperator : MonoBehaviour
     [ContextMenu("Debug Print Results")]
     private void DebugPrintResults()
     {
-        Debug.Log($"Cinayet Nedenleri: {string.Join(", ", Motive_For_Murder)}");
-        Debug.Log($"Cinayet Silahları: {string.Join(", ", Murder_Weapon)}");
-        Debug.Log($"Cinayet Mekanları: {string.Join(", ", Murder_Location)}");
+        Debug.Log($"Cinayet Nedenleri: {string.Join(", ", Motives_For_Murder)}");
+        Debug.Log($"Cinayet Silahları: {string.Join(", ", Murder_Weapons)}");
+        Debug.Log($"Cinayet Mekanları: {string.Join(", ", Murder_Locations)}");
         Debug.Log($"Cinayet Kombinasyonu: {string.Join(", ", Murder_Combination)}");
         Debug.Log($"Cinayet Senaryosu: {Murder_Scenario}");
-        Debug.Log($"Görgü Tanığı Kelimeler: {string.Join(", ", Witness_Words)}");
+        Debug.Log($"Görgü Tanığı Kelimeler: {string.Join(", ", Witness_Combination)}");
         Debug.Log($"Görgü Tanığı Senaryosu: {Witness_Scenario}");
     }
+
+    #endregion
+    //*-----------------------------------------------------------------------------------------//
 }
