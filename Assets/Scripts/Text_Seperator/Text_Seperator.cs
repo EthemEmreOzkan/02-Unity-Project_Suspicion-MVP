@@ -39,9 +39,7 @@ public class Text_Seperator : MonoBehaviour
 
     void Update()
     {
-        if (!hasProcessed &&
-            Gemini_Api_Handler.Is_Response_Received &&
-            !Gemini_Api_Handler.Is_Request_In_Progress)
+        if (!hasProcessed && Gemini_Api_Handler.Is_Response_Received && !Gemini_Api_Handler.Is_Request_In_Progress)
         {
             ParseResponse(Gemini_Api_Handler.Last_Response);
             hasProcessed = true;

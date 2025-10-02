@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Prompt_Game_Loop : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Prompt_Game_Loop : MonoBehaviour
     [Header("References -------------------------------------------------------------------------")]
     [Space]
     [SerializeField] private Gemini_Api_Handler Gemini_Api_Handler;
+    [SerializeField] private Text_Seperator Text_Seperator;
     [SerializeField] private Prompt_List Prompt_List;
     [SerializeField] private TMP_InputField Player_InputField;
     [Space]
@@ -53,10 +55,13 @@ public class Prompt_Game_Loop : MonoBehaviour
 
     public void Send_Player_Answer()
     {
-        string playerText = Player_InputField.text;
+        string player_text = Player_InputField.text;
         Prompt_To_String = Prompt_List.Prompts[1].text;
-        Prompt_To_String += playerText;
+        Prompt_To_String += Text_Seperator.Murder_Scenario;
+        Prompt_To_String += player_text;
         Gemini_Api_Handler.Send_Prompt(Prompt_To_String);
+        //! DEBUGLOG
+        Debug.Log("" + Prompt_To_String);
     }
 
     #endregion
