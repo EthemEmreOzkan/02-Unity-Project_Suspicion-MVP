@@ -119,6 +119,133 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1919237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919238}
+  - component: {fileID: 1919239}
+  m_Layer: 0
+  m_Name: Prompt_List
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1919238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919237}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1985522590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1919239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5475711d06907c4bae1717c3d6d8f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Prompt_List
+  Prompts:
+  - text: "Bir cinayet oyunu projesinde \xE7al\u0131\u015Fan bir AI asistan\u0131s\u0131n
+      senden istedi\u011Fim \u015Fey 3 kategoriden 3'er adet kelime \xFCretmen. Kelimeler
+      anlaml\u0131 ve kategorileri ile ba\u011Flant\u0131l\u0131 olmal\u0131 ve genelde
+      farkl\u0131 kelimeler \xFCretmeni istiyorum. Hedef format haricinde ba\u015Fka
+      herhangi bir c\xFCmle kurmaman\u0131 istiyorum. Daha sonra her kategoriden
+      1 adet al\u0131p bir cinayet senaryosu yazman\u0131 istiyorum. Sonra kalan
+      6 kelimeden tamamen rasgele 3 adet daha se\xE7ip g\xF6rg\xFC tan\u0131\u011F\u0131
+      senaryosu yazman\u0131 istiyorum. NOT: G\xF6rg\xFC tan\u0131\u011F\u0131 ifadesi
+      oyuncuyu yanl\u0131\u015F y\xF6nlendirmemeli ifadesinde \u015F\xFCpheli kelimeleri
+      katil d\u0131\u015F\u0131nda bir yerlerde g\xF6rd\xFC\u011F\xFCn\xFC belirtmeli
+      ve 9 kelimeden 3 tanesinin \u015F\xFCpheli olmad\u0131\u011F\u0131n\u0131 g\xF6stermeli.
+      Yaln\u0131zca G\xF6rg\xFC tan\u0131\u011F\u0131 ifadesinde G\xF6rg\xFC_Tan\u0131\u011F\u0131_Kelimeler
+      kullanmal\u0131d\u0131r.\r\nKategoriler: Cinayet Nedeni - Cinayet Silah\u0131
+      - Cinayet Mekan\u0131\r\nHedef Format:\r\n#Cinayet_Nedeni\r\nNeden1\r\nNeden2\r\nNeden3\r\n#Cinayet_Silah\u0131\r\nSilah1\r\nSilah2\r\nSilah3\r\n#Cinayet_Mekan\u0131\r\nMekan1\r\nMekan2\r\nMekan3\r\n#Cinayet_Kombinasyonu\r\nBuraya
+      cinayet kombinasyonunda kullan\u0131lan kelimeler alt alta yaz\u0131lacak\r\n#Cinayet_Senaryosu\r\nCinayet
+      kombinasyonu ile senaryo yaz\u0131lacak // 1. \u015Fah\u0131s anlat\u0131s\u0131
+      \r\n#G\xF6rg\xFC_Tan\u0131\u011F\u0131_Kelimeler\r\nKalan 6 kelimeden 3 tanesi
+      rasgele se\xE7ilip yaz\u0131lacak\r\n#G\xF6rg\xFC_Tan\u0131\u011F\u0131_Senaryosu\r\n#G\xF6rg\xFC_Tan\u0131\u011F\u0131_Kelimeler
+      ile bir senaryo yaz\u0131lacak // 1. \u015Fah\u0131s anlat\u0131s\u0131\r\n\r\n\xD6rnek
+      Format:\r\n#Cinayet_Nedeni\r\nKan davas\u0131\r\n\u0130ntikam\r\nPara h\u0131rs\u0131\r\n#Cinayet_Silah\u0131\r\nT\xFCfek\r\nMetal
+      Boru\r\n\u0130p\r\n#Cinayet_Mekan\u0131\r\nDepo\r\nOtel Odas\u0131\r\nOrman\r\n#Cinayet_Kombinasyonu\r\nKan
+      Davas\u0131\r\n\u0130p\r\nOrman\r\n#Cinayet_Senaryosu\r\nZaman\u0131nda atalar\u0131m\u0131z\u0131n
+      aras\u0131ndaki *Kan Davas\u0131* g\xFCn\xFCm\xFCze kadar yans\u0131d\u0131.
+      Ondan bu nedenle kan almam gerekliydi. Kand\u0131r\u0131p *Orman*'a \xE7ektim
+      ve *\u0130p* ile bo\u011Farak \xF6ld\xFCrd\xFCm. \r\n#G\xF6rg\xFC_Tan\u0131\u011F\u0131_Kelimeler\r\nOtel
+      Odas\u0131\r\nDepo\r\nPara H\u0131rs\u0131\r\n#G\xF6rg\xFC_Tan\u0131\u011F\u0131_Senaryosu\r\nCinayet
+      saatinde *Depo*dan ald\u0131\u011F\u0131m e\u015Fyalar\u0131 *Otel Odas\u0131*'na
+      yerle\u015Ftiriyordum. Bildi\u011Fim kadar\u0131yla aral\u0131nda *Para H\u0131rs\u0131*
+      nedeniyle bir \u015Feyler ya\u015Fanmad\u0131. Zaten ma\u011Fdur ki\u015Fi
+      \xE7ok fakirdi."
+--- !u!1 &203768592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 203768593}
+  - component: {fileID: 203768594}
+  m_Layer: 0
+  m_Name: Text_Separator_Tool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &203768593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203768592}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1985522590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &203768594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203768592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab29ca8590cac2c4c9a26b78809d50fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Text_Seperator
+  Gemini_Api_Handler: {fileID: 1490038121}
+  Motives_For_Murder: []
+  Murder_Weapons: []
+  Murder_Locations: []
+  Murder_Combination: []
+  Witness_Combination: []
+  Witness_Scenario: 
+  Murder_Scenario: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +467,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 958838595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &752544935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 752544936}
+  - component: {fileID: 752544937}
+  m_Layer: 0
+  m_Name: Prompt_Game_Loop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &752544936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752544935}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1985522590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &752544937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752544935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6f5dcfaeb90084ab143c3360736719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Prompt_Game_Loop
+  Gemini_Api_Handler: {fileID: 1490038121}
+  Prompt_List: {fileID: 1919239}
+  Prompt_To_String: 
 --- !u!1 &958838594
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,8 +547,141 @@ Transform:
   - {fileID: 519420032}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1299286048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1299286049}
+  m_Layer: 0
+  m_Name: Murder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1299286049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299286048}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1490038118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490038119}
+  - component: {fileID: 1490038121}
+  - component: {fileID: 1490038120}
+  m_Layer: 0
+  m_Name: Gemini_Api_Tools
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1490038119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490038118}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1985522590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1490038120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490038118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b928dbb455116c243b204fc71907b918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gemini_Model_List
+  Gemini_API_Key: AIzaSyCoST9MODBit_vIyXst0phVAZ4TxTAH1X8
+  triggerKey: 120
+--- !u!114 &1490038121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490038118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dfd036224e39f48b15888f19e852bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gemini_Api_Handler
+  model: gemini-2.5-flash
+  apiKey: AIzaSyCoST9MODBit_vIyXst0phVAZ4TxTAH1X8
+  Test_Prompt: 
+  Last_Response: 
+  Is_Response_Received: 0
+  Is_Request_In_Progress: 0
+--- !u!1 &1985522589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1985522590}
+  m_Layer: 0
+  m_Name: Managers/Tools
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1985522590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985522589}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1490038119}
+  - {fileID: 203768593}
+  - {fileID: 1919238}
+  - {fileID: 752544936}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 958838595}
+  - {fileID: 1985522590}
+  - {fileID: 1299286049}
