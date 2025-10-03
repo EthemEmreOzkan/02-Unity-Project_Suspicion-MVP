@@ -13,7 +13,7 @@ Proje, **Cluedo** kutu oyunundan esinlenilmiştir. Oyuncu, katilin psikolojisi i
 
 **Ana Hedef:** Katilin avukatı gelmeden önce suçluyu konuşturarak cinayeti çözmek. Aksi takdirde oyuncu kaybeder.
 
-![Cluedo_Steam](../Assets/Cluedo_Steam.jpg)
+![Cluedo_Steam](../Assets_Docs/Cluedo_Steam.jpg)
 
 ---
 

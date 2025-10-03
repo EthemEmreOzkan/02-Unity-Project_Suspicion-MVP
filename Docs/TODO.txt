@@ -1,2 +1,0 @@
-TODO flowchartları güncelle
-TODO Oyun başlangıç ayarları tamamlandı geriye yalnızca chat entegrasyonu kaldı
