@@ -45,6 +45,17 @@ Proje, konsept dokümanında bulunan **potansiyeli gerçekleştirebilecek seviye
 - Chat geçmişi yönetimi iyileştirilmeli
 - Canvas rendering performansı izlenmeli
 
+### Görseller
+- Editör görünümü
+
+![Editor Görünümü](Docs/Assets_Docs/Mvp_Editorside.png)
+Docs\Assets_Docs
+- Runtime görünümü
+
+![Runtime Görünümü](Docs/Assets_Docs/Mvp_Runtime.png)
+
+> ⚠️ **Not:** MVP seviyesi olduğu için herhangi bir **Asset kullanılmamıştır**. 
+
 ---
 
 ## 🔧 Prototip Aşaması İçin Yapılması Gerekenler
